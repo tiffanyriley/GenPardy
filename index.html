@@ -1,12 +1,51 @@
 //When game starts
-//Display first pic of GenPardy set 
+//Display first pic of Genpardy set 
 //Title "GenParty" animates in from the side
-//Prompt asks for the age of User1
+//Prompt asks for the birthdate of User1
+  //age must be in MM/DD/YYYY format
+  //if incorrect format, say wrong format, guess again abd ask for a new age
+  //if birthday is after 12/31/2013, say 'You're too young for this game!" and ask for a new age
+  //if birthday is before 01/01/1928, say 'You're too old for this game!" and ask for a new age
 //Based on age, prompt will say either:
+  //"Good Day Silent Generation"
   //"Hello Baby Boomer"
   //"Whats Up Gen Xer"
   //"Whats Good Millenial"
   //"(Hand Emoji)Gen Z'er"
 //Prompt asks for age of User2
-//
+
+//Game board animates in
+//Game board will be a flexbox with padding with columns that represent categories of questions
+//Categories will be on top row and will be fixed
+//Boxes with $ amounts will be under the categories
+
+//The game will start based on whoever is older and say "Elder (User 1 or 2) you may begin"
+//When User clicks on box, box flips and reveals a new box with a question
+  //Questions are generated randomly
+  //Box will have a text box where you would answer the question
+  //User has 30 sec to answer the question
+  //Timer will be in a box
+    //if correct, the corresponding amount gets added to score. Prompt says "Correct"
+    //if incorrect, the corresonding amount gets deducted from score. Prompt says "Correct"
+    //if no answer after 30 seconds, amount get deducted from score. Prompt says "Time Over!"
+  //Once a box is answered, the box will be blanked out
+///If User gets answer correct, they will get another chance to select a box. 
+///If User get answer incorrect, the other user will have a turn to select a box.
+
+//Game will continue until each box is blanked out. 
+//Whichever User has the higher score will move on to Final Genpardy
+  //However, if the user with the higher score < 0, they will not be able to move on to Final Genpardy
+    //Prompt will say "You Both Lose."
+    //Will loop back to original screen asking for you age
+    //Game will start over agin
+
+  //In Final Jeopardy, the theme screen will appear and a box with a question will pop up. 
+  //User will face a difficult question, and will have 1 minute to answer
+    If correct, prompt will say, "Congratulations! 'Users Generation' Rules!
+    If incorrect, prompt will say, "Nice, try. Maybe next time!
+
+    
+  
+  
+
 
