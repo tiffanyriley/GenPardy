@@ -1,3 +1,10 @@
+// Setting Up Game and Scoreboard
+
+const genpardy = document.getElementById('genpardy')
+const scoreDisplay1 = document.getElementById('score1')
+
+let score1 = 0;
+
 // The Question/Answer Bank
 
 const categories = [
@@ -207,7 +214,7 @@ questions: [
 }
 ]
 
-// let score1 = 0;
+
 // console.log(score1);
 // creating columns for the Genpardy Topics
 categories.forEach(category => addTopic(category));
@@ -227,7 +234,7 @@ column.appendChild(topicListing)
 
 
 
-// column.appendChild(card);
+// Creating clue cards
 
 category.questions.forEach(question => {
     const card = document.createElement('div');
@@ -257,68 +264,45 @@ function flipCard() {
     this.innerText = "";
     this.style.fontSize = "10px"
     this.style.lineHeight = "15px"
+
     const textDisplay = document.createElement('div');
     textDisplay.classList.add('card-text');
     textDisplay.innerText = this.getAttribute('data-question');
-    const button1 = document.createElement('button');
-   
-     button1.classList.add('button1');
+    
+    const userInput = document.createElement('input');
+    userInput.type = 'text';
+    userInput.placeholder = 'Your answer...';
+    userInput.focus(); 
 
-        button1.innerText = "Answer";
-        this.append(textDisplay, button1);
+    const enterButton = document.createElement('button');
+    enterButton.classList.add('button1');
+    enterButton.innerText = 'Submit';
+
+    enterButton.addEventListener('click', () => {
+        const userAnswer = userInput.value.trim().toLowerCase();
+        const correctAnswer = this.getAttribute('data-answer').toLowerCase();
+    
+        if (userAnswer === correctAnswer) {
+            alert('Correct!');
+
+            updateScore(this.getAttribute('data-difficulty'));
+
+            function updateScore(difficulty) {
+                score1 += difficulty;
+                scoreDisplay1.innerText = `Score: ${score1}`;
+            }
+            
+        
+        } else {
+
+            alert('Incorrect. Try again!');
+        }
+    });
+        this.append(textDisplay, userInput, enterButton);
 
 }
 }
 
-
-
-    // const answerBox = document.createElement('answerBox');
-    // answerBox.classList.add('answerInput');
-
-    // const answerButton = document.createElement('answerButton');
-    // answerButton.classList.add('answer-button')
-    // answerButton.innerText = 'Answer!'
-
-    // answerButton.addEventListener('click', () => {
-    //     const userResponse = answerBox.ariaValueMax.toLowerCase();
-    //     const correctAnswer = this.getAttribute('data-answer').toLowerCase();
-       
-
-    // if (userAnswer === correctAnswer){
-    //     alert("You are CORRECT");
-    //     updateScore(parseInt(this.getAttribute('data-difficulty')));
-
-
-    // } else { 
-    //     alert("You are INCORRECT");
-    //     updateScore(-parseInt(this.getAttribute('data-difficulty')));
-    
-    
-    // }
-    //     scoreDisplay1.innerText = score;
-    // }
-    }
-
-  
-
-
-
-
-        // if (question.difficulty === 'easy'){
-    //     card.innerText = 200;
-    // }
-
-    // if (question.difficulty === 'medium'){
-    //     card.innerText = 300;
-    // }
-
-    // if (question.difficulty === 'hard'){
-    //     card.innerText = 400;
-    // }
-
-    // if (question.difficulty === 'superhard'){
-    //     card.innerText = 500;
-    // }
     
 
 
