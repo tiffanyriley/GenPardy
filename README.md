@@ -1,4 +1,4 @@
-## Genpardy -A Generational Trivia Game
+## Genpardy - A Generational Trivia Game
 A new take on Jeopardy...may the best generation wins!
 
 Welcome to Genpardy, a generational trivia game inspired by Jeopardy! Test your knowledge of different generations with fun and engaging questions.
